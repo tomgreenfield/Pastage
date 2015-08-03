@@ -47,7 +47,7 @@ class PastageCommand(sublime_plugin.TextCommand):
 		# replace newlines with break tags
 		self.text = re.sub(r"\n", "<br>", self.text)
 		# ensure two line breaks between sentences on newlines
-		self.text = re.sub(r"([.?!])<br>(\w)", r"\1<br><br>\2", self.text)
+		self.text = re.sub(r"([.?!]\s*)<br>(\s*\w)", r"\1<br><br>\2", self.text)
 		# disallow more than two break tags
 		self.text = re.sub(r"<br><br>(<br>)+", "<br><br>", self.text)
 		# normalise whitespace
